@@ -13,4 +13,6 @@ first try
 second strind (will be deleted later)
 [note for branch]
 commit for branch`
-
+#
+This line was added by Ihor Novosad just for fun )
+#
