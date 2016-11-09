@@ -7,6 +7,7 @@ public class Appl {
 		box.set(text);
 //		Integer i = (Integer) box.get();
 		System.out.println(text);
+		System.out.println("Softserveinc");
 	}
 	
 }
