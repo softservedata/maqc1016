@@ -13,7 +13,7 @@ public class Appl {
 	}
 
 	public void work(String str) { // Overload
-		str = str + " work added by me";
+		str = str + " work added by Danylo";
 		System.out.println("work done, str=" + str);
 	}
 
