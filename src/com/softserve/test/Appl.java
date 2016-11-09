@@ -13,7 +13,11 @@ public class Appl {
 	}
 
 	public void work(String str) { // Overload
+<<<<<<< HEAD
 		str = str + " work added";
+=======
+		str = str + " work added by Danylo";
+>>>>>>> 44200e4f7cb3eac7e5f4500b2c19073949f874fb
 		System.out.println("work done, str=" + str);
 	}
 
