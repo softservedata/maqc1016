@@ -7,22 +7,3 @@
 7 
 8 
 9
-=======
-7 new line
-8
-9ololol
-a
-sldfjlsd
-first try
-second strind (will be deleted later)
-[note for branch]
-commit for branch`
-#
-This line was added by Ihor Novosad just for fun )
-#
->>>>>>> 44200e4f7cb3eac7e5f4500b2c19073949f874fb
-test branch
-one more line for test
-second line
-__________
-added items to another branch12
