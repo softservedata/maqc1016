@@ -13,28 +13,28 @@ public class Appl {
 	}
 
 	public void work(String str) { // Overload
-<<<<<<< HEAD
+
 		str = str + " work added";
-=======
-		str = str + " work added by Danylo";
->>>>>>> 44200e4f7cb3eac7e5f4500b2c19073949f874fb
 		System.out.println("work done, str=" + str);
 	}
 
 	public static void main(String[] args) {
 		Appl appl = new Appl();
 		//
-//		int i = 1;
-//		appl.work(i);
-//		System.out.println("main i=" + i);
+		int i = 1;
+		appl.work(i);
+		System.out.println("main i=" + i);
 		//
-//		StringBuilder sb = new StringBuilder("123");
-//		appl.work(sb);
-//		System.out.println("main sb=" + sb);
+		StringBuilder sb = new StringBuilder("123");
+		appl.work(sb);
+		System.out.println("main sb=" + sb);
 		//
 		 String str = new String("123");
-		 appl.work(str);
-		 System.out.println("main str=" + str);
-
+		 appl.work(str);		 
+		System.out.println("main str=" + str);
+		
+		System.out.println("*****************************");//
+		System.out.println("**this line was EDITED by me**");// byDS
+		System.out.println("*****************************");//
 	}
 }
