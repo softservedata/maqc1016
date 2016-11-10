@@ -30,3 +30,5 @@ This line was added by Ihor Novosad just for fun )
 test branch
 one more line for test
 second line
+__________
+added items to another branch12
