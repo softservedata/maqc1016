@@ -6,6 +6,5 @@ public class ApplWrapper {
 		WrapperBox box = new WrapperBox();
 		box.set(text);
 		//Integer i = (Integer) box.get();  // ERROR
-		System.out.println("done");
 	}
 }
