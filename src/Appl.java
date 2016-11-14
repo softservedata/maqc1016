@@ -1,29 +1,22 @@
+import com.softserve.edu.RegularExspressionsHomework;
+
 import java.util.Scanner;
 
 public class Appl {
 
 	public static void main(String[] args) {
-		System.out.println("Start me 1");
-		String text = "Hello World from Dariia Shevchuk";
-		Box box = new Box();
-		box.set(text);
-//		Integer i = (Integer) box.get();
-		System.out.println(text);
-		System.out.println("Softserveinc");
 
-		System.out.println("November 11");
+		String param = "<table>\n" +
+				"\t<tr>     <th>Month</th>    <th>Count of days</th>   </tr>\n" +
+				"\t<tr>     <td>January</td>     <td>30</td>    </tr>\n" +
+				"\t<tr>      <td>February</td>   <td>28</td>   </tr>\n" +
+				"\t<tr>      <td>March</td>       <td>31</td>    </tr>\n" +
+				"\t</table>";
 
+		System.out.println(RegularExspressionsHomework.doHomework(param));
 
-		Scanner scanner;
-		scanner = new Scanner(System.in);
-		System.out.println("Please, enter first number");
-		int FirstNumber = scanner.nextInt();
-		System.out.println("Please, enter second number");
-		int SecondNumber = scanner.nextInt();
-		System.out.println("The result is next");
-		int Result = FirstNumber * SecondNumber;
-		System.out.println(Result);
 	}
 
-	
+/*	*/
+
 }
