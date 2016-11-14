@@ -1,4 +1,6 @@
-    public class Example {
+package com;
+
+ public class Example {
 
         public static void main(String[ ] args) throws Exception   {
             System.out.print("0123456789");
