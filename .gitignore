@@ -60,3 +60,6 @@ hs_err_pid*
 
 # bower
 /bower_components/
+
+# ignore macOS system files
+/**/.DS_Store/
