@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class RegexTest {
 	public static void main(String args[]) {
-		//List<String> result = new ArrayList<>();
+		List<String> result = new ArrayList<>();
 		// String pattern = "[a-z]+";
 		// String pattern = "[ Na-z]+";
 		// String text = "Now is the time";
@@ -18,9 +18,11 @@ public class RegexTest {
 		//String pattern = "<(\\w+)>[\\w .,]+</\\1>"; // Include all Tags
 		//String text = "<p><b>Beginning with bold text</b> next, text body,<i>italic text</i> end of text.</p>";
 		//
-		String pattern = "\\w+(\\.\\w+)*@(\\w+\\.)+\\w{2,}";
+		//String pattern = "\\w+(\\.\\w+)*@(\\w+\\.)+\\w{2,}";    //email regex
+		String pattern = "((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])(\\.|$)){4}";
 		//String text = "a.b_c.d@i.ua";
-		String text = "a.b_c.d@i.ua aa_@gmail.com;bb@ukr.net";
+		//String text = "a.b_c.d@i.ua aa_@gmail.com;bb@ukr.net";
+		String text = "192.168.0.1";
 		//
 		Pattern p = Pattern.compile(pattern);
 		Matcher m = p.matcher(text);
@@ -32,11 +34,11 @@ public class RegexTest {
 		}
 		m.reset();
 		while (m.find()) {
-			//result.add(text.substring(m.start(), m.end()));
+			result.add(text.substring(m.start(), m.end()));
 			//System.out.print(text.substring(m.start(), m.end()) + "*");
 			//System.out.println(text.substring(m.start()+1, m.end()-1).trim()); // Tag content 
-			System.out.println(text.substring(m.start(), m.end())); // Tag content
+			//System.out.println(text.substring(m.start(), m.end())); // Tag content
 		}
-		//System.out.println("\nResult = " + result);
+		System.out.println("\nResult = " + result);
 	}
 }
