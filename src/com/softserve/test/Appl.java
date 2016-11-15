@@ -12,25 +12,8 @@ public class Appl {
 		System.out.println("work done, sb=" + sb);
 	}
 
-	public void work(String str) { // Overload
-		str = str + " work added";
-		System.out.println("work done, str=" + str);
-	}
-
 	public static void main(String[] args) {
-		Appl appl = new Appl();
-		//
-//		int i = 1;
-//		appl.work(i);
-//		System.out.println("main i=" + i);
-		//
-//		StringBuilder sb = new StringBuilder("123");
-//		appl.work(sb);
-//		System.out.println("main sb=" + sb);
-		//
-		 String str = new String("123");
-		 appl.work(str);
-		 System.out.println("main str=" + str);
+
 
 	}
 }
