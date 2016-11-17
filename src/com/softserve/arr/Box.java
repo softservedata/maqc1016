@@ -1,3 +1,5 @@
+package com.softserve.arr;
+
 public class Box {
 	private Object object;
 
