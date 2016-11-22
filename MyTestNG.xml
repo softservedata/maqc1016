@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ATQC_Suite">
+	<parameter name="testurl" value="http://ssu-oms:8180/OMS/login.htm" />
+	<!-- 3 ERROR 5 WARNING 7 INFO -->
+	<test verbose="7" name="ATQC_Test">
+		<parameter name="number" value="1234" />
+		<classes>
+			<class name="com.softserve.train.FirstTest">
+				<methods>
+					<include name="f2" />
+					<!-- <include name="f1" /> -->
+				</methods>
+			</class>
+			<class name="com.softserve.train.TestNGTest2">
+				<methods>
+					<include name="divisionWithException" />
+				</methods>
+			</class>
+			<class name="com.softserve.train.TestNGTest6" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

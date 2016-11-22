@@ -9,8 +9,10 @@ public class RegexHomeWork {
 
 	public static void main(String[] args) {
 		List<String> result = new ArrayList<>();
+		//String pattern = "((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])(\\.|$)){4}";
+		//String text = "192.168.0.1";
 		String pattern = "r> *<t[hd]>([a-zA-Z]*)<";
-		String text = 	"<table>" + 
+		String text = 	"<table>" +
 						"<tr>     <th>Month</th>    <th>Count of days</th>   </tr>" +
 						"<tr>     <td>January</td>     <td>30</td>    </tr>" +
 						"<tr>      <td>February</td>   <td>28</td>   </tr>" +
