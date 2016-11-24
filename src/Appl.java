@@ -1,6 +1,7 @@
 import com.softserve.edu.RegularExspressionsHomework;
+import com.softserve.LoginTest;
 
-import java.util.Scanner;
+
 
 public class Appl {
 
@@ -15,6 +16,9 @@ public class Appl {
 
 		System.out.println(RegularExspressionsHomework.doHomework(param));
 
+//		WebDriver driver = ?new FirefoxDriver( );
+
+		LoginTest.runtest();
 	}
 
 /*	*/
