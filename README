@@ -1,0 +1,28 @@
+25.11.2016
+
+git commit -am "text"
+
+git pull
+
+git branch -a
+
+git checkout browsers
+
+- - -
+
+http://www.seleniumhq.org/download/
+
+download
+Selenium Standalone Server  3.0.1 
+Java	3.0.1
+\\class86\QC
+
+client-combined-3.0.1-nodeps.jar
+selenium-server-standalone-3.0.1.jar
+
+import project
+
+add 2 *.jar
+add testNG
+
+- - -
