@@ -1,5 +1,6 @@
 package com.softserve.edu;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -40,7 +41,7 @@ public class Browsers {
 		 driver.quit();
 	}
 
-	@Test
+	//@Test
     public void testFirefox2() throws Exception {
 		System.setProperty("webdriver.gecko.driver", "./lib/geckodriver.exe");
         ProfilesIni profileIni = new ProfilesIni();
@@ -57,4 +58,24 @@ public class Browsers {
         Thread.sleep(2000);
         //driver.quit();
     }
+    
+    @Test
+  	public void testFirefox3() throws Exception {
+		System.setProperty("webdriver.gecko.driver", "./lib/geckodriver.exe");
+  		FirefoxProfile profile = new FirefoxProfile();
+  		File file = new File("./lib/firebug-2.0.18-fx.xpi");
+  		profile.addExtension(file);
+  		profile.setAcceptUntrustedCertificates(true);
+  		profile.setPreference("app.update.enabled", false);
+  		profile.setPreference("extensions.firebug.currentVersion","2.0.18");
+  		WebDriver driver = new FirefoxDriver(profile);
+  		//
+  		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+  		driver.get("http://www.google.com");
+  		WebElement element = driver.findElement(By.name("q"));
+  		element.sendKeys("Cheese!");
+  		element.submit();
+  		Thread.sleep(2000);
+  		//driver.quit();
+  	}
 }
