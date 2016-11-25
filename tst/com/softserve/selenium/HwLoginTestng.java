@@ -13,8 +13,8 @@ public class HwLoginTestng {
 	
 	@Test
 	public void testLogin() throws Exception {
-		System.setProperty("webdriver.chrome.driver", "/Users/vromank/Documents/chromedriver");
-		WebDriver driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver", "./lib/chromedriver");
+        WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.get("http://registrator.herokuapp.com/login/");
 		driver.findElement(By.id("login")).clear();
