@@ -7,9 +7,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 public class HwLoginTestng {
-	public static void main(String[] args) throws Exception {
+	
+	@Test
+	public void testLogin() throws Exception {
 		System.setProperty("webdriver.chrome.driver", "/Users/vromank/Documents/chromedriver");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
