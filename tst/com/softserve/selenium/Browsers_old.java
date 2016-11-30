@@ -1,4 +1,4 @@
-package com.softserve.edu;
+package com.softserve.selenium;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -11,7 +11,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.testng.annotations.Test;
 
-public class Browsers {
+public class Browsers_old {
 
 	// @Test // 2.53.1
 	public void testFirefox1() throws Exception {

@@ -5,11 +5,10 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class HwLoginTestng {
+public class HwLoginTest {
 	
 	@Test
 	public void testLogin() throws Exception {
@@ -23,9 +22,14 @@ public class HwLoginTestng {
 		driver.findElement(By.id("password")).sendKeys("qwerty");
 		driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
 		System.out.println("Page title is: " + driver.getTitle());
-		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-		(new WebDriverWait(driver, 10))
-				.until(ExpectedConditions.textToBe(By.xpath("//div[@class='btn-group']/button[1]"), "test"));
+		// Check
+		Assert.assertEquals(driver.findElement(By
+				.xpath("//button[@class='btn btn-primary btn-sm']")).getText(), "test");
+		//
+		// Return to previous state
+		driver.findElement(By.cssSelector(".btn.btn-primary.btn-sm.dropdown-toggle")).click();
+		driver.findElement(By.xpath("//a[contains(@href,'/logout')]")).click();
+		//
 		driver.quit();
 	}
 }
