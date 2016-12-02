@@ -14,10 +14,11 @@ import com.softserve.edu.reg.pages.LoginPage;
 
 public class LoginTest {
 
-	@DataProvider // (parallel = true)
+	@DataProvider//(parallel = true)
 	public Object[][] validUsers() {
 		return new Object[][] { 
-			{ new User("test", "qwerty") }
+			{ new User("test", "qwerty") },
+			{ new User("admin1", "admin1") }
 			};
 		}
 	
