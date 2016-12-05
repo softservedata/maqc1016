@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -26,9 +27,9 @@ public class LoginTest {
 	public void checkAdminLogin(IUser admin) throws Exception {
 		// Precondition
 		System.out.println("+++PATH = " 
-				+ this.getClass().getResource("/lib/chromedriver.exe").getPath().substring(1));
+				+ this.getClass().getResource("/lib/chromedriver").getPath());
 		System.setProperty("webdriver.chrome.driver",
-				this.getClass().getResource("/lib/chromedriver.exe").getPath().substring(1));
+				this.getClass().getResource("/lib/chromedriver").getPath());
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.get("http://registrator.herokuapp.com/login");
@@ -38,6 +39,7 @@ public class LoginTest {
 		LoginPage loginPage = new LoginPage(driver);
 		AdminHomePage adminHomePage = loginPage.successAdminLogin(admin);
 		Thread.sleep(2000);
+		Assert.assertEquals(admin.getLogin(), adminHomePage.getLoggedUserText());
 		driver.quit();
 	}
 
