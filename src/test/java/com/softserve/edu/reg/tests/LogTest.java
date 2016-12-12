@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import com.softserve.edu.reg.data.IUser;
 import com.softserve.edu.reg.data.User;
+import com.softserve.edu.reg.data.UserRepository;
 import com.softserve.edu.reg.pages.LogPage;
 
 public class LogTest {
@@ -18,7 +19,8 @@ public class LogTest {
 		return new Object[][] {
 			//{ UserRepository.getInvalidUser() },
 			//{ UserRepository.getInvalidUser() }
-			{ new User("test1", "qwerty1") },
+			//{ new User("test1", "qwerty1") },
+			{ UserRepository.get().admin() },
 		};
 	}
 

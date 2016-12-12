@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import com.softserve.edu.reg.data.IUser;
 import com.softserve.edu.reg.data.User;
+import com.softserve.edu.reg.data.UserRepository;
 import com.softserve.edu.reg.pages.AdminHomePage;
 import com.softserve.edu.reg.pages.LoginPage;
 
@@ -17,8 +18,10 @@ public class LoginTest {
 	@DataProvider//(parallel = true)
 	public Object[][] validUsers() {
 		return new Object[][] { 
-			{ new User("test", "qwerty") },
-			{ new User("admin1", "admin1") }
+//			{ new User("test", "qwerty") },
+//			{ new User("admin1", "admin1") }
+			{ UserRepository.get().admin() },
+			{ UserRepository.get().adminTest() },
 			};
 		}
 	
@@ -31,7 +34,8 @@ public class LoginTest {
 				this.getClass().getResource("/lib/chromedriver.exe").getPath().substring(1));
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		driver.get("http://registrator.herokuapp.com/login");
+		//driver.get("http://registrator.herokuapp.com/login");
+		driver.get("http://java.training.local:8080/registrator/login");
 		Thread.sleep(2000);
 		//
 		// Test steps.
