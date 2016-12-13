@@ -26,3 +26,23 @@ add 2 *.jar
 add testNG
 
 - - -
+
+Static factory for class By
+
+class By {
+
+//  public By(String id) { ... }
+//  public By(String name) { ... }
+//  public By(String xpath) { ... }
+
+  private By() { ... }
+
+  public static By id(String id) { .... by = new By(); .... return by;}
+  public static By name(String name) { .... by = new By(); .... return by;}
+  public static By xpath(String xpath) { .... by = new By(); .... return by;}
+
+}
+
+
+//By by = new By("aaa");
+By by =  By.id("aaa");
