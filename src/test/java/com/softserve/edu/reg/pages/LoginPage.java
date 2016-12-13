@@ -1,12 +1,14 @@
 package com.softserve.edu.reg.pages;
 
+import java.util.HashMap;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.softserve.edu.reg.data.IUser;
 
-public class LoginPage {
+public class LoginPage extends ATopPage {
 	//
 	public static final String SRC_ATTRIBUTE = "src"; 
 	public static final String NAME_IMAGE = "ukraine_logo2.gif";
@@ -18,8 +20,31 @@ public class LoginPage {
     private static final String SIGNIN_CSSSELECTOR ="button.btn.btn-primary";
     private static final String LOGO_CSSSELECTOR ="img.login_logo.col-md-8.col-xs-12";
 	
+    public static enum LoginPageL10n {
+    	LOGIN_LABEL("Логін","Логин","Login"),
+        PASSWORD_LABEL("Пароль","Пароль","Password"),
+		SUBMIT_BUTTON("Увійти","Войти","Sign in");
+        //
+        private HashMap<ChangeLanguageFields, String> field;
+
+        private LoginPageL10n(String... localization) {
+        	this.field = new HashMap<ChangeLanguageFields, String>();
+        	int i = 0;
+        	for (ChangeLanguageFields language : ChangeLanguageFields.values()) {
+        		this.field.put(language, localization[i]);
+        		i++;
+        	}
+        }
+
+        public String getLocalization(ChangeLanguageFields language) {
+            return this.field.get(language).trim();
+        }
+    }
+    
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 	// Fields
-	private WebDriver driver;
+	// private WebDriver driver;
 	//
 //    private WebElement loginLabel;
 //    private WebElement loginInput;
@@ -29,7 +54,8 @@ public class LoginPage {
 //    private WebElement logo;
 
 	public LoginPage(WebDriver driver) {
-		this.driver = driver;
+		super(driver);
+		// this.driver = driver;
 		//
 //		this.loginLabel = driver.findElement(By.xpath(LOGIN_LABEL_XPATH));
 //		this.loginInput = driver.findElement(By.id(LOGIN_INPUT_ID));
@@ -145,11 +171,11 @@ public class LoginPage {
 
     // Business Logic
 
-//    public LoginPage changeLanguage(ChangeLanguageFields language) {
-//    	setChangeLanguage(language);
-//        // Return a new page object representing the destination.
-//        return new LoginPage(driver);
-//    }
+    public LoginPage changeLanguage(ChangeLanguageFields language) {
+    	setChangeLanguage(language);
+        // Return a new page object representing the destination.
+        return new LoginPage(driver);
+    }
 
     // TODO Develop User class
     private void setLoginData(IUser user) {
