@@ -2,71 +2,105 @@ package com.softserve.edu.reg.apps;
 
 public final class ApplicationSourcesRepository {
 
+	// Use Singleton, Repository
+	private static volatile ApplicationSourcesRepository instance;
+
 	private ApplicationSourcesRepository() {
 	}
 
-	public static ApplicationSources getDefault() {
-		return getChromeHeroku();
+	public static ApplicationSourcesRepository get() {
+		if (instance == null) {
+			synchronized (ApplicationSourcesRepository.class) {
+				if (instance == null) {
+					instance = new ApplicationSourcesRepository();
+				}
+			}
+		}
+		return instance;
+	}
+	
+	public IApplicationSources defaultConfig() {
+		return ChromeHeroku();
+	}
+	
+	public IApplicationSources Firefox4701Heroku() {
+		return ApplicationSources.get()
+				.setBrowserName("FireFox.47.0.1")
+				.setDriverPath("")
+				.setImplicitTimeOut(5L)
+				.setLoginUrl("http://registrator.herokuapp.com/login")
+				.setLogoutUrl("http://registrator.herokuapp.com/logout")
+				.build();
+	}
+	
+	public IApplicationSources Firefox4701Training() {
+		return ApplicationSources.get()
+				.setBrowserName("FireFox.47.0.1")
+				.setDriverPath("")
+				.setImplicitTimeOut(5L)
+				.setLoginUrl("http://java.training.local:8080/registrator/login")
+				.setLogoutUrl("http://java.training.local:8080/registrator/logout")
+				.build();
+	}
+	
+	public IApplicationSources FirefoxHeroku() {
+		return ApplicationSources.get()
+				.setBrowserName("FireFox.3.0.1")
+				.setDriverPath(ApplicationSourcesRepository.class.getResource("/lib/geckodriver.exe").getPath().substring(1))
+				.setImplicitTimeOut(5L)
+				.setLoginUrl("http://registrator.herokuapp.com/login")
+				.setLogoutUrl("http://registrator.herokuapp.com/logout")
+				.build();
 	}
 
-	public static ApplicationSources getFirefox4701Heroku() {
-		return new ApplicationSources("FireFox.47.0.1", "", 5L,
-				"http://registrator.herokuapp.com/login",
-				"http://registrator.herokuapp.com/logout");
+	public IApplicationSources FirefoxTraining() {
+		return ApplicationSources.get()
+				.setBrowserName("FireFox.3.0.1")
+				.setDriverPath(ApplicationSourcesRepository.class.getResource("/lib/geckodriver.exe").getPath().substring(1))
+				.setImplicitTimeOut(5L)
+				.setLoginUrl("http://java.training.local:8080/registrator/login")
+				.setLogoutUrl("http://java.training.local:8080/registrator/logout")
+				.build();
 	}
 
-	public static ApplicationSources getFirefox4701Training() {
-		return new ApplicationSources("FireFox.47.0.1", "", 5L,
-				"http://java.training.local:8080/registrator/login",
-				"http://java.training.local:8080/registrator/logout");
+	public IApplicationSources ChromeHeroku() {
+		return ApplicationSources.get()
+				.setBrowserName("Chrome")
+				.setDriverPath(ApplicationSourcesRepository.class.getResource("/lib/chromedriver.exe").getPath().substring(1))
+				.setImplicitTimeOut(5L)
+				.setLoginUrl("http://registrator.herokuapp.com/login")
+				.setLogoutUrl("http://registrator.herokuapp.com/logout")
+				.build();
 	}
 
-	public static ApplicationSources getFirefoxHeroku() {
-		// System.out.println("+++++ PATH = "
-		// + ApplicationSourcesRepository.class.getResource("/lib/geckodriver.exe").getPath().substring(1));
-		return new ApplicationSources("FireFox.3.0.1",
-				ApplicationSourcesRepository.class.getResource("/lib/geckodriver.exe").getPath().substring(1), 5L,
-				"http://registrator.herokuapp.com/login",
-				"http://registrator.herokuapp.com/logout");
+	public IApplicationSources ChromeTraining() {
+		return ApplicationSources.get()
+				.setBrowserName("Chrome")
+				.setDriverPath(ApplicationSourcesRepository.class.getResource("/lib/chromedriver.exe").getPath().substring(1))
+				.setImplicitTimeOut(5L)
+				.setLoginUrl("http://java.training.local:8080/registrator/login")
+				.setLogoutUrl("http://java.training.local:8080/registrator/logout")
+				.build();
 	}
 
-	public static ApplicationSources getFirefoxTraining() {
-		// System.out.println("+++++ PATH = "
-		// + ApplicationSourcesRepository.class.getResource("/lib/geckodriver.exe").getPath().substring(1));
-		return new ApplicationSources("FireFox.3.0.1",
-				ApplicationSourcesRepository.class.getResource("/lib/geckodriver.exe").getPath().substring(1), 5L,
-				"http://java.training.local:8080/registrator/login",
-				"http://java.training.local:8080/registrator/logout");
+	public IApplicationSources HtmlUnitHeroku() {
+		return ApplicationSources.get()
+				.setBrowserName("HtmlUnit")
+				.setDriverPath("")
+				.setImplicitTimeOut(5L)
+				.setLoginUrl("http://registrator.herokuapp.com/login")
+				.setLogoutUrl("http://registrator.herokuapp.com/logout")
+				.build();
 	}
-
-	public static ApplicationSources getChromeHeroku() {
-		return new ApplicationSources("Chrome",
-				// "C:\\Program Files
-				// (x86)\\Google\\Chrome\\Application\\chromedriver.exe", 5L,
-				ApplicationSourcesRepository.class.getResource("/lib/chromedriver.exe").getPath().substring(1), 5L,
-				"http://registrator.herokuapp.com/login",
-				"http://registrator.herokuapp.com/logout");
-	}
-
-	public static ApplicationSources getChromeTraining() {
-		return new ApplicationSources("Chrome",
-				// "C:\\Program Files
-				// (x86)\\Google\\Chrome\\Application\\chromedriver.exe", 5L,
-				ApplicationSourcesRepository.class.getResource("/lib/chromedriver.exe").getPath().substring(1), 5L,
-				"http://java.training.local:8080/registrator/login",
-				"http://java.training.local:8080/registrator/logout");
-	}
-
-	public static ApplicationSources getHtmlUnitHeroku() {
-		return new ApplicationSources("HtmlUnit", "", 5L,
-				"http://registrator.herokuapp.com/login",
-				"http://registrator.herokuapp.com/logout");
-	}
-
-	public static ApplicationSources getHtmlUnitTraining() {
-		return new ApplicationSources("HtmlUnit", "", 5L,
-				"http://java.training.local:8080/registrator/login",
-				"http://java.training.local:8080/registrator/logout");
+	
+	public IApplicationSources HtmlUnitTraining() {
+		return ApplicationSources.get()
+				.setBrowserName("HtmlUnit")
+				.setDriverPath("")
+				.setImplicitTimeOut(5L)
+				.setLoginUrl("http://java.training.local:8080/registrator/login")
+				.setLogoutUrl("http://java.training.local:8080/registrator/logout")
+				.build();
 	}
 
 }

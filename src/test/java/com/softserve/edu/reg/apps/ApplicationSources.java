@@ -1,6 +1,31 @@
 package com.softserve.edu.reg.apps;
 
-public class ApplicationSources {
+interface IBrowserName {
+	IDriverPath setBrowserName(String browserName);
+}
+
+interface IDriverPath {
+	IImplicitTimeOut setDriverPath(String driverPath);
+}
+
+interface IImplicitTimeOut {
+	ILoginUrl setImplicitTimeOut(long implicitTimeOut);
+}
+
+interface ILoginUrl {
+	ILogoutUrl setLoginUrl(String loginUrl);
+}
+
+interface ILogoutUrl {
+	IBuild setLogoutUrl(String logoutUrl);
+}
+
+interface IBuild {
+	IApplicationSources build();
+}
+
+public class ApplicationSources implements IBrowserName, IDriverPath, IImplicitTimeOut, 
+				ILoginUrl, ILogoutUrl, IBuild, IApplicationSources  {
 
 	// Browser Data
 	private String browserName;
@@ -26,17 +51,47 @@ public class ApplicationSources {
 	private String logoutUrl;
 	// private String serverUrl;
 	//
-	// Connect to DB
 
-	public ApplicationSources(String browserName, String driverPath,
-			long implicitTimeOut, String loginUrl, String logoutUrl) {
-		this.browserName = browserName;
-		this.driverPath = driverPath;
-		this.implicitTimeOut = implicitTimeOut;
-		this.loginUrl = loginUrl;
-		this.logoutUrl = logoutUrl;
+	private ApplicationSources() {		
 	}
 
+	// static factory
+	
+	public static IBrowserName get() {
+		return new ApplicationSources();
+	}
+	
+	// setters
+	
+	public IDriverPath setBrowserName(String browserName) {
+		this.browserName = browserName;
+		return this;
+	}
+
+	public IImplicitTimeOut setDriverPath(String driverPath) {
+		this.driverPath = driverPath;
+		return this;
+	}
+
+	public ILoginUrl setImplicitTimeOut(long implicitTimeOut) {
+		this.implicitTimeOut = implicitTimeOut;
+		return this;
+	}
+
+	public ILogoutUrl setLoginUrl(String loginUrl) {
+		this.loginUrl = loginUrl;
+		return this;
+	}
+
+	public IBuild setLogoutUrl(String logoutUrl) {
+		this.logoutUrl = logoutUrl;
+		return this;
+	}
+	
+	public IApplicationSources build() {
+		return this;
+	}
+	
 	// getters
 	
 	public String getBrowserName() {
