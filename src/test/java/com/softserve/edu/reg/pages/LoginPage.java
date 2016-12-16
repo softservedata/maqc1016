@@ -187,11 +187,11 @@ public class LoginPage extends ATopPage {
 		clickSignin();
 	}
 
-//    public HomePage successUserLogin(IUser user) {
-//        setLoginData(user);
-//        // Return a new page object representing the destination.
-//        return new HomePage(driver);
-//    }
+    public HomePage successUserLogin(IUser user) {
+        setLoginData(user);
+        // Return a new page object representing the destination.
+        return new HomePage(driver);
+    }
 
     public AdminHomePage successAdminLogin(IUser admin) {
     //public AdminHomePage successAdminLogin(String login, String password) {

@@ -48,7 +48,7 @@ public final class UserRepository {
 				.setLastname("реєстратор")
 				.setEmail("registrator@ukr.net")
 				.setLogin("registrator")
-				.setPassword("admin")
+				.setPassword("registrator")
 				.setCommunity("Львівська")
 				.build();
 	}
