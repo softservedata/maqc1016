@@ -5,11 +5,14 @@ import java.util.HashMap;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.softserve.edu.reg.data.IUser;
 
 public class LoginPage extends ATopPage {
 	//
+	public static final Logger logger = LoggerFactory.getLogger(LoginPage.class);
 	public static final String SRC_ATTRIBUTE = "src"; 
 	public static final String NAME_IMAGE = "ukraine_logo2.gif";
 	//
@@ -75,6 +78,7 @@ public class LoginPage extends ATopPage {
 	}
 
 	public WebElement getLoginInput() {
+		logger.debug("Start");
 		//return this.loginInput;
 		return driver.findElement(By.id(LOGIN_INPUT_ID));
 	}
@@ -85,11 +89,13 @@ public class LoginPage extends ATopPage {
 	}
 
 	public WebElement getPasswordInput() {
+		logger.debug("Start");
 		//return this.passwordInput;
 		return driver.findElement(By.id(PASSWORD_INPUT_ID));
 	}
 
 	public WebElement getSignin() {
+		logger.debug("Start");
 		//return this.signin;
 		return driver.findElement(By.cssSelector(SIGNIN_CSSSELECTOR));
 	}
@@ -180,11 +186,16 @@ public class LoginPage extends ATopPage {
     // TODO Develop User class
     private void setLoginData(IUser user) {
     //private void setLoginData(String login, String password) {
+		logger.debug("Start");
 		setLoginInputClear(user.getLogin());
+		logger.trace("setLoginInputClear() Done, User Login = " + user.getLogin());
 		setPasswordInputClear(user.getPassword());
+		logger.trace("setPasswordInputClear() Done, User Password = " + user.getPassword());
 		//setLoginInputClear(login);
 		//setPasswordInputClear(password);
 		clickSignin();
+		logger.trace("clickSignin() Done");
+		logger.debug("Done");
 	}
 
     public HomePage successUserLogin(IUser user) {

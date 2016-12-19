@@ -43,6 +43,7 @@ hs_err_pid*
 
 # ignore log
 *.log
+*.log.*
 
 # ignore picture
 *.bmp

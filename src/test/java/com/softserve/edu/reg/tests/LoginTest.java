@@ -2,6 +2,8 @@ package com.softserve.edu.reg.tests;
 
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -18,23 +20,29 @@ import com.softserve.edu.reg.pages.HomePage;
 import com.softserve.edu.reg.pages.LoginPage;
 
 public class LoginTest {
+	public static final Logger logger = LoggerFactory.getLogger(LoginTest.class);
 
 	@AfterClass
 	public void afterClass() {
+		logger.info("@AfterClass Start");
 		System.out.println("@AfterClass");
 		Application.remove();
+		logger.info("@AfterClass Done");
 	}
 
 	@AfterMethod
 	public void afterMethod() throws IOException {
+		logger.info("@AfterMethod Start");
 		System.out.println("@AfterMethod");
 		Application.get().logout();
 		//Application.remove();
+		logger.info("@AfterMethod Done");
 	}
 
 	
 	@DataProvider//(parallel = true)
 	public Object[][] validAdmin() {
+		logger.info("@DataProvider validAdmin() Start");
 		return new Object[][] { 
 //			{ new User("test", "qwerty") },
 //			{ new User("admin1", "admin1") }
@@ -50,6 +58,7 @@ public class LoginTest {
 	//@Test(dataProvider = "validAdmin")
 	public void checkAdminLogin(ApplicationSources applicationSources,
 			IUser admin) throws Exception {
+		logger.info("@Test checkAdminLogin(...) Start");
 		// Precondition
 //		System.out.println("+++PATH = " 
 //				+ this.getClass().getResource("/lib/chromedriver.exe").getPath().substring(1));
@@ -79,10 +88,12 @@ public class LoginTest {
 		adminHomePage.clickLogout();
 		// driver.quit();
 		//Application.get().quit();
+		logger.info("@Test checkAdminLogin(...) Done");
 	}
 
 	@DataProvider //(parallel = true)
 	public Object[][] coownerLogin() {
+		logger.info("@DataProvider coownerLogin(...) Start");
 		return new Object[][] {
 			//{ ApplicationSourcesRepository.getChromeHeroku(), UserRepository.getAdmin() },
 			{ ApplicationSourcesRepository.getChromeTraining(),
@@ -99,6 +110,7 @@ public class LoginTest {
 	@Test(dataProvider = "coownerLogin")
 	public void checkCoownerLogin(ApplicationSources applicationSources,
 			IUser user) throws Exception {
+		logger.info("@Test checkCoownerLogin(...) Start User= " + user.getLogin());
 		// Precondition
 		LoginPage loginPage = Application.get(applicationSources).load();
 		//
@@ -113,6 +125,7 @@ public class LoginTest {
 		Thread.sleep(2000);
 		homePage.clickLogout();
 		//Thread.sleep(2000);
+		logger.info("@Test checkCoownerLogin(...) Done");
 	}
 		
 }
