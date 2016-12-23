@@ -1,5 +1,7 @@
 package com.softserve.edu.reg.data;
 
+import java.util.List;
+
 public final class UserRepository {
 
 	// Use Singleton, Repository
@@ -84,6 +86,18 @@ public final class UserRepository {
 				.setPassword("qwerty")
 				.setCommunity("Україна")
 				.build();
+	}
+
+	public static List<IUser> getNewUsersFromCsvFile() {
+		return new UserUtils().getAllUsers();
+	}
+
+	public static List<IUser> getNewUsersFromExcelFile() {
+		return new UserUtils("/newUsers.xlsx", new ExcelUtils()).getAllUsers();
+	}
+
+	public static List<IUser> getNewUsersFromDB() {
+		return new UserUtils("/", new DBUtils()).getAllUsers();
 	}
 
 }
